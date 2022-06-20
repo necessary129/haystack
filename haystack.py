@@ -38,6 +38,8 @@ def pad(matrix):
 
 def process(program):
     lines  = program.split('\n')
+    if lines[0].startswith('#!'):
+        lines.pop(0)
     matrix = [[[' '],[char for char in line]][line != ''] for line in lines]
     matrix = pad(matrix)
     funcs = { '+': plus_,  '-': minus_, '*': mult_,  '/': divd_,
